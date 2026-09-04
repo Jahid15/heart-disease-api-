@@ -8,7 +8,7 @@ Module 17 assignment: FastAPI + Docker + Deployment.
 
 ## Live deployment
 
-https://REPLACE-WITH-YOUR-RENDER-URL.onrender.com
+https://heart-disease-api-knuf.onrender.com
 
 Swagger UI is at `/docs` on the same host.
 
