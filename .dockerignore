@@ -4,5 +4,6 @@
 __pycache__
 *.pyc
 data
+docs
 train.py
 README.md

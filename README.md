@@ -22,6 +22,8 @@ Swagger UI is at `/docs` on the same host.
 │   └── schemas.py        Pydantic request and response models
 ├── data/
 │   └── heart.csv         kaggle heart disease dataset, 1025 rows
+├── docs/
+│   └── swagger.png       swagger ui running in the container
 ├── model/
 │   ├── heart_model.joblib
 │   └── metadata.json     model type, feature list, accuracy
@@ -67,6 +69,8 @@ docker-compose up
 ```
 
 Then open http://localhost:8000/docs
+
+![Swagger UI](docs/swagger.png)
 
 To stop it:
 
