@@ -24,8 +24,8 @@
     "0": "no heart disease",
     "1": "heart disease"
   },
-  "training_rows": 242,
+  "training_rows": 241,
   "test_rows": 61,
   "test_accuracy": 0.8033,
-  "dataset": "Heart Disease Dataset (UCI Cleveland)"
+  "dataset": "Kaggle Heart Disease Dataset (johnsmith88)"
 }

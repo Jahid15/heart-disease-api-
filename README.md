@@ -21,7 +21,7 @@ Swagger UI is at `/docs` on the same host.
 │   ├── main.py           FastAPI app and endpoints
 │   └── schemas.py        Pydantic request and response models
 ├── data/
-│   └── heart.csv         training data
+│   └── heart.csv         kaggle heart disease dataset, 1025 rows
 ├── model/
 │   ├── heart_model.joblib
 │   └── metadata.json     model type, feature list, accuracy
@@ -139,12 +139,22 @@ curl -X POST http://localhost:8000/predict \
 
 ## Model
 
-Logistic Regression inside a pipeline with standard scaling. The data is split
-80/20 with stratification and a fixed random seed. Test accuracy is around 0.80.
+Logistic Regression inside a pipeline with standard scaling. After removing
+duplicate rows the data is split 80/20 with stratification and a fixed random
+seed, giving 241 training rows and 61 test rows. Test accuracy is 0.8033.
+
 The goal of the assignment is the Docker and deployment workflow, not maximum
 accuracy.
 
 ## Dataset
 
-Heart Disease dataset (UCI Cleveland), 303 rows and 14 columns. The `target`
-column is 1 when heart disease is present and 0 when it is absent.
+Heart Disease dataset from Kaggle:
+https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset
+
+The file has 1025 rows and 14 columns. The `target` column is 1 when heart
+disease is present and 0 when it is absent.
+
+That file repeats the original Cleveland records, so only 302 of the 1025 rows
+are unique. `train.py` drops the duplicates before splitting, otherwise the same
+patient can end up in both the training and the test set and the reported
+accuracy comes out much higher than it really is.

@@ -34,7 +34,13 @@ TARGET = "target"
 
 def load_data():
     df = pd.read_csv(DATA_PATH)
-    df = df.dropna()
+    raw_rows = len(df)
+
+    # the kaggle file repeats the original cleveland records, so without this
+    # the same row can land in both splits and inflate the score
+    df = df.drop_duplicates().dropna().reset_index(drop=True)
+    print(f"rows: {raw_rows} in file, {len(df)} after dropping duplicates")
+
     df[TARGET] = (df[TARGET] > 0).astype(int)
     return df[FEATURES], df[TARGET]
 
@@ -74,7 +80,7 @@ def main():
         "training_rows": int(len(X_train)),
         "test_rows": int(len(X_test)),
         "test_accuracy": round(float(accuracy), 4),
-        "dataset": "Heart Disease Dataset (UCI Cleveland)",
+        "dataset": "Kaggle Heart Disease Dataset (johnsmith88)",
     }
     METADATA_PATH.write_text(json.dumps(metadata, indent=2) + "\n")
 
