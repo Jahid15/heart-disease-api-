@@ -1,0 +1,31 @@
+{
+  "model_type": "LogisticRegression",
+  "pipeline": [
+    "StandardScaler",
+    "LogisticRegression"
+  ],
+  "features": [
+    "age",
+    "sex",
+    "cp",
+    "trestbps",
+    "chol",
+    "fbs",
+    "restecg",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "slope",
+    "ca",
+    "thal"
+  ],
+  "target": "target",
+  "classes": {
+    "0": "no heart disease",
+    "1": "heart disease"
+  },
+  "training_rows": 242,
+  "test_rows": 61,
+  "test_accuracy": 0.8033,
+  "dataset": "Heart Disease Dataset (UCI Cleveland)"
+}
